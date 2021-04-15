@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.SearchController">
+   <children>
+      <Separator layoutX="515.0" orientation="VERTICAL" prefHeight="775.0" prefWidth="12.0" />
+      <ScrollPane layoutX="-1.0" prefHeight="775.0" prefWidth="510.0">
+         <content>
+            <TableView fx:id="notetableview" prefHeight="930.0" prefWidth="510.0">
+              <columns>
+                  <TableColumn fx:id="authorcolumn" prefWidth="73.0" text="作者" />
+                <TableColumn fx:id="noteidcolumn" prefWidth="55.0" text="笔记id" />
+                <TableColumn fx:id="titlecolumn" prefWidth="103.0" text="标题" />
+                  <TableColumn fx:id="likenumbercolumn" prefWidth="51.0" text="点赞数" />
+                  <TableColumn fx:id="issuetimecolumn" prefWidth="127.0" text="发布时间" />
+                  <TableColumn fx:id="categorycolumn" prefWidth="96.0" text="所属分类" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <TextField fx:id="searchid_text" layoutX="535.0" layoutY="22.0" prefHeight="41.0" prefWidth="272.0" promptText="请输入您要查看的左侧的笔记的id..." />
+      <Button fx:id="search_button" layoutX="822.0" layoutY="25.0" mnemonicParsing="false" onAction="#search" prefHeight="35.0" prefWidth="70.0" text="查看" />
+      <TextArea fx:id="textarea" disable="true" layoutX="553.0" layoutY="150.0" prefHeight="566.0" prefWidth="579.0" />
+      <TextField fx:id="title_text" editable="false" layoutX="742.0" layoutY="84.0" prefHeight="41.0" prefWidth="205.0" />
+      <Label fx:id="title_label" layoutX="674.0" layoutY="87.0" prefHeight="35.0" prefWidth="57.0" text="标题：">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="clicktolike" disable="true" layoutX="1005.0" layoutY="93.0" mnemonicParsing="false" text="点赞">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="turnback" layoutX="1084.0" layoutY="726.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="41.0" prefWidth="78.0" text="返回" />
+      <ImageView fitHeight="51.0" fitWidth="50.0" layoutX="596.0" layoutY="80.0">
+         <image>
+            <Image url="@search_photo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="addtofavorite" disable="true" layoutX="549.0" layoutY="732.0" mnemonicParsing="false" onAction="#addToFavorite" text="加入收藏夹" />
+      <Button fx:id="refurbish_button" layoutX="912.0" layoutY="25.0" mnemonicParsing="false" onAction="#refurbish" prefHeight="35.0" prefWidth="70.0" text="刷新" />
+      <Label fx:id="label_tip" layoutX="965.0" layoutY="121.0" text="“点赞后要点击更新哦~”" />
+   </children>
+</AnchorPane>

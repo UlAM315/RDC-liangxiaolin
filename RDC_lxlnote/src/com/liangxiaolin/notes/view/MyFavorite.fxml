@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.MyFavoriteController">
+   <children>
+      <Label fx:id="title_label" layoutX="497.0" layoutY="47.0" text="我的收藏夹" textFill="#861aa1">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="388.0" layoutY="65.0">
+         <image>
+            <Image url="@favorite_photo.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="notetableview" layoutX="124.0" layoutY="174.0" prefHeight="543.0" prefWidth="951.0">
+        <columns>
+          <TableColumn fx:id="authorcolumn" prefWidth="130.0" text="作者" />
+          <TableColumn fx:id="titlecolumn" prefWidth="130.0" text="笔记标题" />
+            <TableColumn fx:id="likenumbercolumn" minWidth="9.0" prefWidth="88.0" text="点赞数" />
+            <TableColumn fx:id="issuetimecolumn" prefWidth="200.0" text="发表时间" />
+            <TableColumn fx:id="categorycolumn" prefWidth="190.0" text="笔记分类" />
+            <TableColumn fx:id="favoritetimecolumn" prefWidth="212.0" text="收藏时间" />
+        </columns>
+      </TableView>
+      <Button fx:id="turnback" layoutX="1080.0" layoutY="717.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="42.0" prefWidth="82.0" text="返回" />
+      <Button fx:id="refurbish" layoutX="33.0" layoutY="717.0" mnemonicParsing="false" onAction="#Refurbish" prefHeight="42.0" prefWidth="82.0" text="刷新" />
+   </children>
+</AnchorPane>

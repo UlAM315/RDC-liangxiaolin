@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.LogInController">
+   <children>
+      <Label fx:id="label_title" layoutX="347.0" layoutY="70.0" prefHeight="118.0" prefWidth="723.0" text="欢迎使用研发笔记本" textFill="#020b17">
+         <font>
+            <Font name="Segoe UI Emoji" size="72.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="rdcphoto" fitHeight="213.0" fitWidth="245.0" layoutX="94.0" layoutY="34.0">
+         <image>
+            <Image url="@rdc.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="label_username" layoutX="294.0" layoutY="307.0" prefHeight="71.0" prefWidth="171.0" text="用户名：">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_password" layoutX="319.0" layoutY="431.0" prefHeight="71.0" prefWidth="171.0" text="密码：">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="user_name" layoutX="430.0" layoutY="319.0" prefHeight="47.0" prefWidth="486.0" promptText="请输入用户名" />
+      <PasswordField fx:id="password" layoutX="430.0" layoutY="443.0" prefHeight="47.0" prefWidth="494.0" promptText="请输入密码" />
+      <Button fx:id="login" layoutX="597.0" layoutY="615.0" mnemonicParsing="false" onAction="#Login" text="登录">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="recover" layoutX="840.0" layoutY="615.0" mnemonicParsing="false" onAction="#Recover" text="重新输入">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="photo1" fitHeight="62.0" fitWidth="60.0" layoutX="224.0" layoutY="312.0">
+         <image>
+            <Image url="@LogIn1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="photo2" fitHeight="71.0" fitWidth="60.0" layoutX="254.0" layoutY="431.0">
+         <image>
+            <Image url="@LogIn2.jpg" />
+         </image>
+      </ImageView>
+      <Hyperlink fx:id="forgetpassword" layoutX="182.0" layoutY="578.0" onAction="#Forgetpassword" prefHeight="54.0" prefWidth="110.0" text="忘记密码？">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="register" layoutX="177.0" layoutY="640.0" onAction="#Register" prefHeight="47.0" prefWidth="230.0" text="新用户？点击此处注册~">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <Button fx:id="manager" layoutX="968.0" layoutY="452.0" mnemonicParsing="false" onAction="#managerLogIn" text="管理员登录" />
+   </children>
+</AnchorPane>

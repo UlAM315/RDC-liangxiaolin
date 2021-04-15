@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.CategoryController">
+   <children>
+      <Label fx:id="label_category" layoutX="413.0" layoutY="44.0" text="笔记分类" textFill="#1852b5">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="719.0" layoutY="46.0">
+         <image>
+            <Image url="@category_photo.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="categorytableview" layoutX="163.0" layoutY="156.0" prefHeight="513.0" prefWidth="887.0">
+        <columns>
+          <TableColumn fx:id="categoryidcolumn" prefWidth="140.0" text="分类编号" />
+          <TableColumn fx:id="notecategorycolumn" prefWidth="746.0" text="笔记分类" />
+        </columns>
+      </TableView>
+      <Button fx:id="turnback" layoutX="1061.0" layoutY="706.0" mnemonicParsing="false" onAction="#turnBack" prefHeight="43.0" prefWidth="78.0" text="返回">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="refurbish" layoutX="71.0" layoutY="706.0" mnemonicParsing="false" onAction="#Refurbish" prefHeight="43.0" prefWidth="78.0" text="刷新">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

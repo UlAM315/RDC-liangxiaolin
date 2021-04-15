@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.PersonalNotesEditController">
+   <children>
+      <ScrollPane layoutX="143.0" layoutY="184.0" prefHeight="468.0" prefWidth="909.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="715.0" prefWidth="909.0">
+               <children>
+                  <TextArea fx:id="textarea" prefHeight="716.0" prefWidth="909.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <TextField fx:id="id_text" layoutX="16.0" layoutY="22.0" prefHeight="52.0" prefWidth="254.0" promptText="请输入您要查看的笔记id..." />
+      <Button fx:id="searchid" layoutX="284.0" layoutY="30.0" mnemonicParsing="false" onAction="#searchidAction" prefHeight="36.0" prefWidth="84.0" text="查看">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="79.0" fitWidth="98.0" layoutX="14.0" layoutY="680.0">
+         <image>
+            <Image url="@personalnotesedit_photo.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="857.0" layoutY="103.0">
+         <image>
+            <Image url="@personalnotesedit_photo1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="title_text" layoutX="230.0" layoutY="114.0" prefHeight="52.0" prefWidth="254.0" promptText="请输入您要发布笔记的标题..." />
+      <Button fx:id="savemodify" disable="true" layoutX="694.0" layoutY="695.0" mnemonicParsing="false" onAction="#saveModifyAction" prefHeight="52.0" prefWidth="140.0" text="保存修改">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="returnmainpage" layoutX="1007.0" layoutY="697.0" mnemonicParsing="false" onAction="#returnMainPageAction" prefHeight="45.0" prefWidth="148.0" text="返回主页面">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="issue" layoutX="224.0" layoutY="694.0" mnemonicParsing="false" onAction="#issueAction" prefHeight="52.0" prefWidth="133.0" text="发布该笔记">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="delete" disable="true" layoutX="376.0" layoutY="692.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="52.0" prefWidth="140.0" text="删除该笔记">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="modify" disable="true" layoutX="525.0" layoutY="693.0" mnemonicParsing="false" onAction="#modifyAction" prefHeight="52.0" prefWidth="154.0" text="修改该笔记">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Hyperlink fx:id="wanttoissue" layoutX="251.0" layoutY="663.0" onAction="#wantToIssue" prefHeight="20.0" prefWidth="71.0" text="我要发布" />
+      <Label layoutX="169.0" layoutY="130.0" text="标题：" />
+      <Label layoutX="516.0" layoutY="130.0" text="所属分类：" />
+      <TextField fx:id="category" layoutX="591.0" layoutY="114.0" prefHeight="52.0" prefWidth="254.0" promptText="请输入笔记分类..." />
+      <Label fx:id="label_openorprivate" layoutX="1073.0" layoutY="568.0" text="公开/私密：" />
+      <TextField fx:id="openopenorprivate" layoutX="1065.0" layoutY="595.0" prefHeight="30.0" prefWidth="98.0" />
+   </children>
+</AnchorPane>

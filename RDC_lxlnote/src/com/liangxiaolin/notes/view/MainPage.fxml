@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.MainPageController">
+   <children>
+      <MenuBar prefHeight="62.0" prefWidth="443.0">
+        <menus>
+          <Menu fx:id="view" mnemonicParsing="false" text="查看">
+            <items>
+              <MenuItem fx:id="favorite" mnemonicParsing="false" onAction="#favoriteAction" text="个人收藏夹" />
+                  <MenuItem fx:id="category" mnemonicParsing="false" onAction="#categoryAction" text="笔记分类" />
+                  <MenuItem fx:id="personal_notes" mnemonicParsing="false" onAction="#personalNotesAction" text="个人笔记维护功能" />
+            </items>
+          </Menu>
+          <Menu fx:id="set" mnemonicParsing="false" text="设置">
+            <items>
+              <MenuItem fx:id="modify" mnemonicParsing="false" onAction="#modifyAction" text="修改个人信息" />
+                  <MenuItem fx:id="resetpassword" mnemonicParsing="false" onAction="#resetPasswordAction" text="修改密码" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exitAction" text="退出登录" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextField fx:id="search" layoutX="519.0" layoutY="8.0" prefHeight="55.0" prefWidth="368.0" promptText="输入用户名或者笔记标题的关键字进行搜索..." />
+      <ImageView fitHeight="62.0" fitWidth="60.0" layoutX="429.0">
+         <image>
+            <Image url="@mainpage_photo1.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="button_search" layoutX="904.0" layoutY="21.0" mnemonicParsing="false" onAction="#SearchAction" text="搜索" />
+      <Separator layoutX="421.0" layoutY="62.0" orientation="VERTICAL" prefHeight="713.0" prefWidth="17.0" />
+      <ScrollPane layoutY="60.0" prefHeight="720.0" prefWidth="416.0">
+         <content>
+            <TableView fx:id="notetableview" prefHeight="722.0" prefWidth="416.0">
+              <columns>
+                  <TableColumn fx:id="notesidcolumn" prefWidth="53.0" text="笔记id" />
+                <TableColumn fx:id="titlecolumn" prefWidth="119.0" text="笔记标题" />
+                <TableColumn fx:id="issuetimecolumn" minWidth="0.0" prefWidth="161.0" text="发表时间" />
+                  <TableColumn fx:id="ifopencolumn" minWidth="0.0" prefWidth="66.0" text="是否公开" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <GridPane layoutX="416.0" layoutY="419.0" prefHeight="245.0" prefWidth="748.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="369.0" minWidth="10.0" prefWidth="260.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="560.0" minWidth="10.0" prefWidth="488.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="label_username" prefHeight="64.0" prefWidth="284.0" text="        用户名" textFill="#239ab2">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <tooltip>
+                  <Tooltip fx:id="tip" text="在此页面只可更改一次用户名，若要再更改，则需重新登录" />
+               </tooltip>
+            </Label>
+            <Label fx:id="label_birthday" prefHeight="60.0" prefWidth="278.0" text="         生日" textFill="#7c77dd" GridPane.rowIndex="1">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_sex" prefHeight="71.0" prefWidth="297.0" text="         性别" textFill="#eb983a" GridPane.rowIndex="2">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="label_telephone" prefHeight="84.0" prefWidth="307.0" text="        手机号" textFill="#fc7e7e" GridPane.rowIndex="3">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="username" editable="false" prefHeight="52.0" prefWidth="435.0" GridPane.columnIndex="1" />
+            <TextField fx:id="birthday" editable="false" prefHeight="50.0" prefWidth="470.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="sex" editable="false" prefHeight="49.0" prefWidth="470.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="telephone" editable="false" prefHeight="52.0" prefWidth="470.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Label fx:id="label_welcome" layoutX="429.0" layoutY="84.0" prefHeight="118.0" prefWidth="748.0" text="       欢迎回来研发笔记本~" textFill="#8a3bbf">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="452.0" layoutY="355.0" text="个人信息：">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#77c670" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <ImageView fitHeight="200.0" fitWidth="188.0" layoutX="940.0" layoutY="190.0">
+         <image>
+            <Image url="@mainpage_photo2.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="refurbish" layoutX="1013.0" layoutY="706.0" mnemonicParsing="false" onAction="#refurbishAction" text="刷新页面">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="save" disable="true" layoutX="821.0" layoutY="706.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="35.0" prefWidth="153.0" text="保存修改个人信息" />
+   </children>
+</AnchorPane>

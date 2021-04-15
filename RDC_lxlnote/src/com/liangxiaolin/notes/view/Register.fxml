@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="773.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.liangxiaolin.notes.view.RegisterController">
+   <children>
+      <Label fx:id="label_newuser" layoutX="487.0" layoutY="56.0" prefHeight="97.0" prefWidth="329.0" text="注册新用户" textFill="#000c0d">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="photo_newuser" fitHeight="111.0" fitWidth="111.0" layoutX="354.0" layoutY="49.0">
+         <image>
+            <Image url="@register1.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lable_user_name" layoutX="343.0" layoutY="243.0" text="用户名：" textFill="#273fc5">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_password" layoutX="379.0" layoutY="316.0" text="密码：" textFill="#273fc5">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_birthday" layoutX="373.0" layoutY="378.0" prefHeight="97.0" prefWidth="120.0" text="生日：" textFill="#273fc5">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_sex" layoutX="379.0" layoutY="488.0" text="性别：" textFill="#273fc5">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_telephone" layoutX="343.0" layoutY="588.0" text="手机号：" textFill="#273fc5">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="user_name" layoutX="500.0" layoutY="243.0" prefHeight="54.0" prefWidth="268.0" promptText="请输入用户名" />
+      <TextField fx:id="telephone" layoutX="500.0" layoutY="585.0" prefHeight="54.0" prefWidth="268.0" promptText="请输入手机号" />
+      <PasswordField fx:id="password" layoutX="500.0" layoutY="324.0" prefHeight="54.0" prefWidth="268.0" promptText="请输入密码" />
+      <RadioButton fx:id="man" layoutX="508.0" layoutY="489.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="144.0" selected="true" text="男">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="sex" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="woman" layoutX="620.0" layoutY="501.0" mnemonicParsing="false" text="女" toggleGroup="$sex">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <Button fx:id="finish" layoutX="453.0" layoutY="693.0" mnemonicParsing="false" onAction="#Finish" text="完成">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="birthday" layoutX="504.0" layoutY="405.0" prefHeight="54.0" prefWidth="268.0" />
+      <Button fx:id="turnback" layoutX="681.0" layoutY="693.0" mnemonicParsing="false" onAction="#TurnBack" text="返回">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
