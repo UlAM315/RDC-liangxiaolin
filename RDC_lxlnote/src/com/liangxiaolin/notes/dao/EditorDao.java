@@ -1,5 +1,6 @@
 package com.liangxiaolin.notes.dao;
 
+import com.liangxiaolin.notes.util.ReflectUtils;
 import com.liangxiaolin.notes.view.LogInController;
 import com.liangxiaolin.notes.view.PersonalNotesEditController;
 import com.liangxiaolin.notes.entity.Editor;
@@ -9,55 +10,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class EditorDao {
     public Editor getNoteMessage(){
         String sql = "SELECT `title`,`category_name`,`note_content`,`if_open`\n" +
                 "FROM `note` n,`category` c\n" +
                 "WHERE `note_id`=? AND n.`category_id`=c.`category_id`;";
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Editor editor = new Editor();;
-        try {
-            conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1, PersonalNotesEditController.id);
-            rs = ps.executeQuery();
-            if(rs.next()){
-                editor.setTitle(rs.getString("title"));
-                editor.setCategory_name(rs.getString("category_name"));
-                editor.setNote_content(rs.getString("note_content"));
-                editor.setIf_open(rs.getString("if_open"));
-            }
-            return editor;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn,ps,rs);
-        }
-        return null;
+        List<Editor> editor = ReflectUtils.query(Editor.class,sql,PersonalNotesEditController.id);
+        return editor.get(0);
     }
 
     public boolean deleteNote(){
         String sql = "DELETE FROM `note` WHERE `note_id`= ?;";
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1,PersonalNotesEditController.id);
-            int line = ps.executeUpdate();
-            if(line==1){
-                return true;
-            }else return false;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn,ps);
-        }
-        return false;
+        return ReflectUtils.update(sql,PersonalNotesEditController.id);
     }
 
     public boolean modifyOrAddNote(String title,String note_content,String if_open,String modifyoradd){

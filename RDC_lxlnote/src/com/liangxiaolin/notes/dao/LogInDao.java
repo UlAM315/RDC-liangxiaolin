@@ -2,6 +2,7 @@ package com.liangxiaolin.notes.dao;
 
 import com.liangxiaolin.notes.entity.Users;
 import com.liangxiaolin.notes.util.JDBCUtils;
+import com.liangxiaolin.notes.util.ReflectUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -53,6 +54,7 @@ public class LogInDao {
 
     public List<Users> getUsersMessage(){
         String sql = "SELECT * FROM users;";
+        //return ReflectUtils.query(Users.class,sql,null);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;

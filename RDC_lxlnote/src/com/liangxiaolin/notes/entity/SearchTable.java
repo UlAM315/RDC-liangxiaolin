@@ -1,7 +1,7 @@
 package com.liangxiaolin.notes.entity;
 
 public class SearchTable {
-    private String author;  //笔记作者
+    private String user_name;  //笔记作者
     private int note_id;
     private String title;  //笔记的标题
     private int like_number;  //笔记的点赞数，默认为0
@@ -15,7 +15,7 @@ public class SearchTable {
     @Override
     public String toString() {
         return "SearchTable{" +
-                "author='" + author + '\'' +
+                "user_name='" + user_name + '\'' +
                 ", note_id=" + note_id +
                 ", title='" + title + '\'' +
                 ", like_number=" + like_number +
@@ -33,8 +33,8 @@ public class SearchTable {
         this.note_content = note_content;
     }
 
-    public SearchTable(String author, int note_id, String title, int like_number, String issue_time, String category_name, String note_content) {
-        this.author = author;
+    public SearchTable(String user_name, int note_id, String title, int like_number, String issue_time, String category_name, String note_content) {
+        this.user_name = user_name;
         this.note_id = note_id;
         this.title = title;
         this.like_number = like_number;
@@ -43,12 +43,12 @@ public class SearchTable {
         this.note_content = note_content;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getuser_name() {
+        return user_name;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setuser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public int getNote_id() {

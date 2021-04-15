@@ -1,5 +1,6 @@
 package com.liangxiaolin.notes.dao;
 
+import com.liangxiaolin.notes.util.ReflectUtils;
 import com.liangxiaolin.notes.view.LogInController;
 import com.liangxiaolin.notes.entity.MyFavorite;
 import com.liangxiaolin.notes.util.DateUtils;
@@ -24,6 +25,7 @@ public class MyFavoriteDao {
                 "\tFROM `users`\n" +
                 "\tWHERE `user_name`=?\n" +
                 ")=f.`user_id`;";
+        //return ReflectUtils.query(MyFavorite.class,sql,LogInController.username);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -35,7 +37,7 @@ public class MyFavoriteDao {
             rs = ps.executeQuery();
             while (rs.next()){
                 MyFavorite myfavorite = new MyFavorite();
-                myfavorite.setAuthor(rs.getString("user_name"));
+                myfavorite.setuser_name(rs.getString("user_name"));
                 myfavorite.setTitle(rs.getString("title"));
                 myfavorite.setLike_number(rs.getInt("like_number"));
                 myfavorite.setIssue_time(DateUtils.getStringBirthdayTime(rs.getDate("issue_time")));

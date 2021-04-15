@@ -36,6 +36,11 @@ public class DateUtils {
         return java.sql.Date.valueOf(df.format(new Date()));
     }
 
+    public static String getStringIssueTime(java.sql.Timestamp issuetime){
+        DateFormat df = new SimpleDateFormat(dateformat1);
+        return df.format(issuetime);
+    }
+
     public static String getStringIssueTime(java.sql.Date issuetime){
         DateFormat df = new SimpleDateFormat(dateformat1);
         return df.format(issuetime);

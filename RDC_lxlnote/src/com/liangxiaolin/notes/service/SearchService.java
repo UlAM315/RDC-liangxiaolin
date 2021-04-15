@@ -24,7 +24,7 @@ public class SearchService {
         if(list!=null){
             for (int i = 0; i < list.size(); i++) {
                 SearchTable searchtable = list.get(i);
-                SearchTableBean searchtablebean = new SearchTableBean(searchtable.getAuthor(),String.valueOf(searchtable.getNote_id()),searchtable.getTitle(),String.valueOf(searchtable.getLike_number()),searchtable.getIssue_time(),searchtable.getCategory_name(),searchtable.getNote_content());
+                SearchTableBean searchtablebean = new SearchTableBean(searchtable.getuser_name(),String.valueOf(searchtable.getNote_id()),searchtable.getTitle(),String.valueOf(searchtable.getLike_number()),searchtable.getIssue_time(),searchtable.getCategory_name(),searchtable.getNote_content());
                 searchtablebeanlist.add(searchtablebean);
             }
             return searchtablebeanlist;

@@ -1,7 +1,7 @@
 package com.liangxiaolin.notes.entity;
 
 public class MyFavorite {
-    private String author;  //笔记作者
+    private String user_name;  //笔记作者
     private String title;  //笔记的标题
     private int like_number;  //笔记的点赞数，默认为0
     private String issue_time;  //笔记的发表时间
@@ -11,8 +11,8 @@ public class MyFavorite {
     public MyFavorite() {
     }
 
-    public MyFavorite(String author, String title, int like_number, String issue_time, String category_name, String favorite_time) {
-        this.author = author;
+    public MyFavorite(String user_name, String title, int like_number, String issue_time, String category_name, String favorite_time) {
+        this.user_name = user_name;
         this.title = title;
         this.like_number = like_number;
         this.issue_time = issue_time;
@@ -20,12 +20,12 @@ public class MyFavorite {
         this.favorite_time = favorite_time;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getuser_name() {
+        return user_name;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setuser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getTitle() {
@@ -71,7 +71,7 @@ public class MyFavorite {
     @Override
     public String toString() {
         return "MyFavorite{" +
-                "author='" + author + '\'' +
+                "user_name='" + user_name + '\'' +
                 ", title='" + title + '\'' +
                 ", like_number=" + like_number +
                 ", issue_time='" + issue_time + '\'' +

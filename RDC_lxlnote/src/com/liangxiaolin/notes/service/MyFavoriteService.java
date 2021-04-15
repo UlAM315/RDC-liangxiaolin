@@ -22,7 +22,7 @@ public class MyFavoriteService {
         if(list!=null){
             for (int i = 0; i < list.size(); i++) {
                 MyFavorite myfavorite = list.get(i);
-                MyFavoriteBean myfavoritebean = new MyFavoriteBean(myfavorite.getAuthor(),myfavorite.getTitle(),String.valueOf(myfavorite.getLike_number()),myfavorite.getIssue_time(),myfavorite.getCategory_name(),myfavorite.getFavorite_time());
+                MyFavoriteBean myfavoritebean = new MyFavoriteBean(myfavorite.getuser_name(),myfavorite.getTitle(),String.valueOf(myfavorite.getLike_number()),myfavorite.getIssue_time(),myfavorite.getCategory_name(),myfavorite.getFavorite_time());
                 myfavoritebeanlist.add(myfavoritebean);
             }
             return myfavoritebeanlist;

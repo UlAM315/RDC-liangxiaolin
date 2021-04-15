@@ -1,5 +1,6 @@
 package com.liangxiaolin.notes.dao;
 
+import com.liangxiaolin.notes.util.ReflectUtils;
 import com.liangxiaolin.notes.view.LogInController;
 import com.liangxiaolin.notes.view.MainPageController;
 import com.liangxiaolin.notes.view.SearchController;
@@ -21,6 +22,7 @@ public class SearchDao {
                 "WHERE u.`user_id`=n.`user_id`  \n" +
                 "AND c.`category_id`=n.`category_id` \n" +
                 "AND (`user_name` LIKE \"%\"?\"%\" OR `title` LIKE \"%\"?\"%\");";
+        //return ReflectUtils.query(SearchTable.class,sql,MainPageController.searchkeywork,MainPageController.searchkeywork);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -35,7 +37,7 @@ public class SearchDao {
                 //假如该文章是公开的，才能展示出来
                 if(("公开").equals(rs.getString("if_open"))){
                     SearchTable searchtable = new SearchTable();
-                    searchtable.setAuthor(rs.getString("user_name"));
+                    searchtable.setuser_name(rs.getString("user_name"));
                     searchtable.setNote_id(rs.getInt("note_id"));
                     searchtable.setTitle(rs.getString("title"));
                     searchtable.setLike_number(rs.getInt("like_number"));
@@ -56,22 +58,7 @@ public class SearchDao {
 
     public boolean clickToLike(int note_id){
         String sql = "UPDATE `note` SET `like_number`=`like_number`+1 WHERE `note_id`= ?;";
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement(sql);
-            ps.setInt(1,note_id);
-            int line = ps.executeUpdate();
-            if(line==1){
-                return true;
-            }else return false;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn,ps);
-        }
-        return false;
+        return ReflectUtils.update(sql,note_id);
     }
 
     public boolean addToFavorite(){

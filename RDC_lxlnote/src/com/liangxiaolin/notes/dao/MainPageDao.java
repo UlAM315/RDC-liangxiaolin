@@ -1,5 +1,6 @@
 package com.liangxiaolin.notes.dao;
 
+import com.liangxiaolin.notes.util.ReflectUtils;
 import com.liangxiaolin.notes.view.LogInController;
 import com.liangxiaolin.notes.entity.Note;
 import com.liangxiaolin.notes.entity.Users;
@@ -54,54 +55,12 @@ public class MainPageDao {
      */
     public boolean modifyPersonalMessage(String newuser_name,String birthday,String sex,String telephone){
         String sql = "UPDATE users SET `user_name`=?,`birthday`=STR_TO_DATE(?,'%Y-%c-%d'),`sex`=?,`telephone`=? WHERE `user_name`=?;";
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement(sql);
-            ps.setString(1,newuser_name);
-            ps.setString(2,birthday);
-            ps.setString(3,sex);
-            ps.setString(4,telephone);
-            ps.setString(5, LogInController.username);
-            int line = ps.executeUpdate();
-            if(line==1){
-                return true;
-            }else return false;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn,ps);
-        }
-        return false;
+        return ReflectUtils.update(sql,newuser_name,birthday,sex,telephone,LogInController.username);
     }
 
     public List<Note> getNotesMessage(){
         String sql = "SELECT `note_id`,`title`,`issue_time`,`if_open` FROM `note` n,`users` u WHERE n.`user_id`=u.`user_id` AND `user_name`=?;";
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        List<Note> list = new ArrayList<>();
-        try {
-            conn = JDBCUtils.getConnection();
-            ps = conn.prepareStatement(sql);
-            ps.setString(1,LogInController.username);
-            rs = ps.executeQuery();
-            while (rs.next()){
-                Note note = new Note();
-                note.setNote_id(rs.getInt("note_id"));
-                note.setTitle(rs.getString("title"));
-                note.setIssue_time(DateUtils.getStringIssueTime(rs.getDate("issue_time")));
-                note.setIf_open(rs.getString("if_open"));
-                list.add(note);
-            }
-            return list;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn,ps,rs);
-        }
-        return null;
+        return ReflectUtils.query(Note.class,sql,LogInController.username);
     }
     }
 
